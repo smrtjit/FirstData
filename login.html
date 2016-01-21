@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script type="text/javascript" charset="utf-8">
+function myFunction() {
+
+var url="http://10.201.1.111:8080/PhoneGap/login/generic/show/";
+var name=document.getElementById("email").value;
+var pass=document.getElementById("pass").value;
+var check=url+name+"/"+pass;
+	if(name==="" || pass==="")
+	{
+		alert("Please enter the user name or Password");
+	}
+	else
+	{
+	var request = new XMLHttpRequest();
+    request.open("GET", check, true);
+    request.onreadystatechange = function() {//Call a function when the state changes.
+        if (request.readyState == 4) {
+            if (request.status == 200 || request.status == 0) {
+               alert(request.responseText);
+            }
+        }
+    }
+	}
+    
+    console.log("asking for tweets");
+    request.send();
+	}
+</script>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="msapplication-tap-highlight" content="no" />
+<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+<title>Login</title>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/jq.js"></script>
+<script type="text/javascript" src="js/auth.js"></script>
+</head>
+<body>
+
+<table width="100%" border="1">
+
+  <tr>
+    <td width="50%">Email</td>
+    <td width="50%"><label>
+      <input type="text" name="email" id="email">
+    </label></td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td><label>
+      <input type="text" name="pass" id="pass">
+    </label></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center"><strong>
+      <label>
+      <input type="button" id="MyButton" name="MyButton" value="Sign in" onclick="myFunction()">
+      </label>
+    </strong></div></td>
+    
+  </tr>
+
+  <tr>
+    <td colspan="2"><div align="center"><em><strong>Forget Password </strong></em></div></td>
+    
+  </tr>
+  
+</table>
+
+
+</body>
+</html>
